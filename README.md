@@ -20,17 +20,17 @@ CMS Application - Terraform Infrastructure
 ```
 # The CMS must be backed by a relational database.
 ```console
-  RDS Mysql is considered for relational database and this code is defined in modules/rds folder main.tf file. <br>
-  The values for the variables defined in the main.tf are declared and  initialized in modules/rds/ variables.tf file. <br>
-  The DB endpoint is captured in output.tf defined in modules/rds folder.
+  1. RDS Mysql is considered for relational database and this code is defined in modules/rds folder main.tf file. <br>
+  2. The values for the variables defined in the main.tf are declared and  initialized in modules/rds/ variables.tf file. <br>
+  3. The DB endpoint is captured in output.tf defined in modules/rds folder.
   ```
 ## Scalability and fault tolerance should be an important consideration of your design.
 ```console
- -  Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.<br>
+  1. Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.<br>
   Used AMI from marketplace to configure ASG.<br>
-  Template is defined for userdata to install mysql client, httpd server, wordpress and passing sql file inside template file to create user in mysql. The userdata is defined in modules/asg/user_data.tpl <br>
-  Following Blue/Green deployment method by adding create_before_destroy = true statement in cms_ag.tf file. So this will ensure for any reason the running instance is unhealthy there will be new ec2 instance created and started and until the new ec2 instance is healthy the current ec2 won't terminate.<br>
-  cms_dns.tf present under modules/dns will created the A record in the hosted zone and dns name name is captured as output in output.tf file.<br>
+  2. Template is defined for userdata to install mysql client, httpd server, wordpress and passing sql file inside template file to create user in mysql. The userdata is defined in modules/asg/user_data.tpl <br>
+  3. Following Blue/Green deployment method by adding create_before_destroy = true statement in cms_ag.tf file. So this will ensure for any reason the running instance is unhealthy there will be new ec2 instance created and started and until the new ec2 instance is healthy the current ec2 won't terminate.<br>
+  4. cms_dns.tf present under modules/dns will created the A record in the hosted zone and dns name name is captured as output in output.tf file.<br>
  ``` 
 # Reusability of the terraform module should be part of the design.
 ```console
