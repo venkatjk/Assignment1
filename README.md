@@ -24,7 +24,7 @@ CMS Application - Terraform Infrastructure
   The values for the variables defined in the main.tf are declared and  initialized in modules/rds/ variables.tf file. <br>
   The DB endpoint is captured in output.tf defined in modules/rds folder.
   ```
-# Scalability and fault tolerance should be an important consideration of your design.
+## Scalability and fault tolerance should be an important consideration of your design.
 ```console
  -  Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.<br>
   Used AMI from marketplace to configure ASG.<br>
