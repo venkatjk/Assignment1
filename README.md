@@ -26,7 +26,7 @@ CMS Application - Terraform Infrastructure
   ```
 # Scalability and fault tolerance should be an important consideration of your design.
 ```console
-  Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.<br>
+ -  Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.<br>
   Used AMI from marketplace to configure ASG.<br>
   Template is defined for userdata to install mysql client, httpd server, wordpress and passing sql file inside template file to create user in mysql. The userdata is defined in modules/asg/user_data.tpl <br>
   Following Blue/Green deployment method by adding create_before_destroy = true statement in cms_ag.tf file. So this will ensure for any reason the running instance is unhealthy there will be new ec2 instance created and started and until the new ec2 instance is healthy the current ec2 won't terminate.<br>
