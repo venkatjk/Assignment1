@@ -3,16 +3,16 @@ CMS Application - Terraform Infrastructure
 
 ## Pre-requisite
 ```console
-   We should have AWS access key and secret key to run this terraform code
-   VPC,Subnets,Routing Table, Internet Gateway already existing
-   AWS CLI and Terraform installed on your laptop
+   1. We should have AWS access key and secret key to run this terraform code
+   2. VPC,Subnets,Routing Table, Internet Gateway already existing
+   3. AWS CLI and Terraform installed on your laptop
  ```  
 ## To develop the infrastructure code for CMS Application.
   Wordpress is chosen as an example for this demonstration
   
 ## Usage
 ```console
-    Clone the repo locally into your system prefarably into demo direcoty in c drive and make sure you have all pre-requisites setup.
+   Clone the repo locally into your system prefarably into demo direcoty in c drive and make sure you have all pre-requisites setup.
 ```    
 ## Execute
 ```console
