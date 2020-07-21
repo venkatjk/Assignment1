@@ -34,7 +34,8 @@ CMS Application - Terraform Infrastructure
  ``` 
 ## Reusability of the terraform module should be part of the design.
 ```console
-  Modules allows us to separate our Terraform files into manageable groups. There are various benefits to this such as to better organised file structure, and the ability to focus Terraform apply to a reduced scope. In this demonstration we can see 3 modules present under modules folder. 
+  1. Modules allows us to separate our Terraform files into manageable groups. There are various benefits to this such as to better organised file structure, and the ability to focus Terraform apply to a reduced scope. 
+  2. In this demonstration we can see 3 modules present under modules folder. 
  ``` 
 ## Provide a testing strategy for the terraform module.
 ```console
