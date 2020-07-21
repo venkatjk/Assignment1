@@ -11,7 +11,9 @@ CMS Application - Terraform Infrastructure
   Wordpress is chosen as an example for this demonstration
   
 ## Usage
-   -> Clone the repo locally into your system prefarably into demo direcoty in c drive and make sure you have all pre-requisites setup.
+```console
+    Clone the repo locally into your system prefarably into demo direcoty in c drive and make sure you have all pre-requisites setup.
+```    
 ## Execute
 ```console
      terraform init --var-file="C:\demo\env\dev.tfvars"
