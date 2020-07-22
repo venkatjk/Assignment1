@@ -17,9 +17,17 @@ CMS Application - Terraform Infrastructure
 ```    
 ## Execute
 ```console
-     terraform init --var-file="XXX\env\dev.tfvars" --
+Dev Environment:
+
+     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmsdev.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\dev.tfvars"
      terraform plan --var-file="XXXX\env\dev.tfvars"
      terraform apply --var-file="XXXX\env\dev.tfvars"
+
+Test Environment:
+     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmstst.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\tst.tfvars"
+     terraform plan --var-file="XXXX\env\tst.tfvars"
+     terraform apply --var-file="XXXX\env\tst.tfvars"
+
 ```
 ## The CMS must be backed by a relational database.
 ```console
@@ -29,15 +37,12 @@ CMS Application - Terraform Infrastructure
   ```
 ## Scalability and fault tolerance should be an important consideration of your design.
 ```console
-  1. Autoscaling group is used to create the ec2 resource, so that it always make sure there 1 instance running as per our definitions in variables.tf in asg module.
-  Used AMI from marketplace to configure ASG.
-  2. Template is defined for userdata to install mysql client, httpd server, wordpress and passing sql file inside template file to create user in mysql. The userdata is defined in modules/asg/user_data.tpl 
-  3. Following Blue/Green deployment method by adding create_before_destroy = true statement in cms_ag.tf file. So this will ensure for any reason the running instance is unhealthy there will be new ec2 instance created and started and until the new ec2 instance is healthy the current ec2 won't terminate.
-  4. cms_dns.tf present under modules/dns will created the A record in the hosted zone and dns name name is captured as output in output.tf file.
+  1.Implemented AWS Autoscaling group to ensure the application is scalable - Scheduled scaling or metric based.
+  2.Tried to implement Blue-Green Deployment model with basic application health checks from HA/Fault Tolerence perspective.
  ``` 
 ## Reusability of the terraform module should be part of the design.
 ```console
-  1. Modules allows us to separate our Terraform files into manageable groups. There are various benefits to this such as to better organised file structure, and the ability to focus Terraform apply to a reduced scope. 
+  1. Terraform Modularisation allows us to separate our Terraform files into manageable groups. There are various benefits to this such as to better organised file structure, and the ability to focus Terraform apply to a reduced scope. 
   2. In this demonstration we can see 3 modules present under modules folder. 
  ``` 
 ## Provide a testing strategy for the terraform module.
