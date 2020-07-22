@@ -3,22 +3,23 @@ CMS Application - Terraform Infrastructure
 
 ## Pre-requisite
 ```console
-   1. We should have AWS access key and secret key to run this terraform code
-   2. VPC,Subnets,Routing Table, Internet Gateway already existing
-   3. AWS CLI and Terraform installed on your laptop
+   1. We should have AWS access key and secret key to run this terraform code( Configure using aws cli manually or set it at ~/.aws/credentials)
+   2. AWS CLI and Terraform(v12.0.0) installed on your laptop
+   3. VPC, 2 Subnets,Routing Table, Security Groups,KeyPairs,S3 bucket (tfstate) ,DynamoDB(tfstate lock) created already.
+   
  ```  
 ## To develop the infrastructure code for CMS Application.
   Wordpress is chosen as an example for this demonstration
   
 ## Usage
 ```console
-   Clone the repo locally into your system prefarably into demo direcoty in c drive and make sure you have all pre-requisites setup.
+   Clone the repo locally into your system prefarably into XXX direcoty in c drive and make sure you have all pre-requisites setup.
 ```    
 ## Execute
 ```console
-     terraform init --var-file="C:\demo\env\dev.tfvars"
-     terraform plan --var-file="C:\demo\env\dev.tfvars"
-     terraform apply --var-file="C:\demo\env\dev.tfvars"
+     terraform init --var-file="XXX\env\dev.tfvars" --
+     terraform plan --var-file="XXXX\env\dev.tfvars"
+     terraform apply --var-file="XXXX\env\dev.tfvars"
 ```
 ## The CMS must be backed by a relational database.
 ```console
