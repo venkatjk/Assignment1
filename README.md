@@ -19,12 +19,12 @@ CMS Application - Terraform Infrastructure
 ```console
 Dev Environment:
 
-     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmsdev.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\dev.tfvars"
+     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmsdeploy.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\dev.tfvars"
      terraform plan --var-file="XXXX\env\dev.tfvars"
      terraform apply --var-file="XXXX\env\dev.tfvars"
 
 Test Environment:
-     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmstst.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\tst.tfvars"
+     terraform init -backend=true -backend-config="bucket=cms-venkat-tfstate" -backend-config="key=cmsdeploy.tfstate"-backend-config="dynamodb_table=cms-tf-lock" --var-file="XXX\env\tst.tfvars"
      terraform plan --var-file="XXXX\env\tst.tfvars"
      terraform apply --var-file="XXXX\env\tst.tfvars"
 
